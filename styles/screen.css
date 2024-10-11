@@ -5,27 +5,32 @@
     --max-width: 1024px;
     --aside-width: 300px;
 
-    --font-family: -apple-system, sans-serif;
+    --font-family: "Courier";
 
-    --body-size: 17px;
-    --body-line-height: 24px;
+    --body-size: 15px;
+    --body-line-height: 22px;
     --body-letter-spacing: -0.013em;
-    --body-weight: 400;
+    --body-weight: 500;
 
-    --title-size: 24px;
-    --title-line-height: 34px;
-    --title-weight: 700;
-    --title-letter-spacing: -0.019em;
+    --title-size: var(--body-size);
+    --title-line-height: var(--body-line-height);
+    --title-weight: var(--body-weight);
+    --title-letter-spacing: var(--body-letter-spacing);
 
-    --header-size: 24px;
-    --header-line-height: 34px;
-    --header-weight: 400;
-    --header-letter-spacing: -0.019em;
+    --header-size: var(--body-size);
+    --header-line-height: var(--body-line-height);
+    --header-weight: 800;
+    --header-letter-spacing: var(--body-letter-spacing);
 
-    --caption-size: 15px;
-    --caption-line-height: 21px;
+    --subheader-size: var(--body-size);
+    --subheader-line-height: var(--body-line-height);
+    --subheader-weight: 800;
+    --subheader-letter-spacing: var(--body-letter-spacing);
+
+    --caption-size: var(--body-size);
+    --caption-line-height: var(--body-line-height);
     --caption-weight: var(--body-weight);
-    --caption-letter-spacing: -0.009em;
+    --caption-letter-spacing: var(--body-letter-spacing);
     --caption-opacity: 0.35;
 
     --strong-weight: 700;
@@ -35,24 +40,24 @@
     --mono-line-height: 18px;
     --mono-letter-spacing: 0;
 
-    --system-white: #FFF;
+    --system-white: #fff;
     --system-black: #000;
     --system-gray: #888888;
-    --system-red: #F26F42;
-    --system-yellow: #F2C53D;
-    --system-green: #79BF56;
-    --system-blue: #50B4E6;
+    --system-red: #f26f42;
+    --system-yellow: #f2c53d;
+    --system-green: #79bf56;
+    --system-blue: #50b4e6;
 
-    --system-light-red: #F9C5B3;
-    --system-light-yellow: #F9E7B1;
-    --system-light-green: #C9E5BB;
-    --system-light-blue: #B8E0F5;
+    --system-light-red: #f9c5b3;
+    --system-light-yellow: #f9e7b1;
+    --system-light-green: #c9e5bb;
+    --system-light-blue: #b8e0f5;
     --system-light-gray: rgba(0, 0, 0, 0.15);
 
-    --system-dark-red: #A64929;
-    --system-dark-yellow: #B3912D;
-    --system-dark-green: #598C3F;
-    --system-dark-blue: #3A82A6;
+    --system-dark-red: #a64929;
+    --system-dark-yellow: #b3912d;
+    --system-dark-green: #598c3f;
+    --system-dark-blue: #3a82a6;
 
     --hang: -80px;
     --border-radius: 6px;
@@ -147,35 +152,17 @@ h2 {
     letter-spacing: var(--header-letter-spacing);
 }
 
-h3,
+h3 {
+    font-size: var(--subheader-size);
+    line-height: var(--subheader-line-height);
+    font-weight: var(--subheader-weight);
+    letter-spacing: var(--subheader-letter-spacing);
+}
+
 h4,
 h5,
 h6 {
     font-weight: var(--strong-weight);
-}
-
-h1+h2,
-h2+h3,
-h3+h4 {
-    margin-top: calc(var(--margin) * -1);
-    font-weight: var(--body-weight);
-}
-
-h3+p,
-h3+table,
-h3+ul {
-    margin-top: calc(var(--margin) * -0.5);
-}
-
-h5+p,
-h6+p,
-h3+table,
-h4+table,
-h5+table,
-h6+table,
-h5+ul,
-h6+ul {
-    margin-top: calc(var(--margin) * -1);
 }
 
 h1,
@@ -280,7 +267,7 @@ details summary:before {
     margin-left: -22px;
 }
 
-details[open]>summary:before {
+details[open] > summary:before {
     content: "↓ ";
     color: var(--system-light-gray);
 }
@@ -293,9 +280,8 @@ hr {
     display: block;
     margin: calc(var(--margin) * 2) 0;
     border: none;
-    height: 3px;
+    height: 1Q;
     background-color: var(--system-black);
-    opacity: 0.15;
 }
 
 li::before {
@@ -323,8 +309,8 @@ code {
 /* Forms */
 /* ------------------------------------------------------------------ */
 
-input[type=text],
-input[type=password],
+input[type="text"],
+input[type="password"],
 textarea,
 span.input {
     display: block;
@@ -353,8 +339,8 @@ textarea.large {
     height: 400px;
 }
 
-input[type=text],
-input[type=password] {
+input[type="text"],
+input[type="password"] {
     padding: 10px;
 }
 
@@ -368,7 +354,7 @@ label {
 }
 
 button,
-input[type=submit],
+input[type="submit"],
 .button {
     display: inline-block;
     margin-right: calc(var(--margin) / 2);
@@ -384,7 +370,7 @@ input[type=submit],
 }
 
 button.destructive,
-input[type=submit].destructive {
+input[type="submit"].destructive {
     border-color: var(--system-red);
     color: var(--system-red);
 }
@@ -536,7 +522,7 @@ figcaption a {
     padding: 5px 12px;
     border: 1px solid var(--system-black);
     text-decoration: none;
-    color: var(--system-black)
+    color: var(--system-black);
 }
 
 .pagination .page-item a:hover {
@@ -560,27 +546,26 @@ figcaption a {
     color: var(--system-white);
 }
 
-.pagination .page-item a[aria-label=First] span,
-.pagination .page-item a[aria-label=Last] span,
-.pagination .page-item a[aria-label=Previous] span,
-.pagination .page-item a[aria-label=Next] span {
+.pagination .page-item a[aria-label="First"] span,
+.pagination .page-item a[aria-label="Last"] span,
+.pagination .page-item a[aria-label="Previous"] span,
+.pagination .page-item a[aria-label="Next"] span {
     display: none;
 }
 
-.pagination .page-item a[aria-label=First]:after {
+.pagination .page-item a[aria-label="First"]:after {
     content: "⇐";
 }
 
-
-.pagination .page-item a[aria-label=Previous]:after {
+.pagination .page-item a[aria-label="Previous"]:after {
     content: "←";
 }
 
-.pagination .page-item a[aria-label=Next]:after {
+.pagination .page-item a[aria-label="Next"]:after {
     content: "→";
 }
 
-.pagination .page-item a[aria-label=Last]:after {
+.pagination .page-item a[aria-label="Last"]:after {
     content: "⇒";
 }
 
@@ -606,7 +591,7 @@ figcaption a {
     padding: 5px 12px;
     border: 1px solid var(--system-black);
     text-decoration: none;
-    color: var(--system-black)
+    color: var(--system-black);
 }
 
 .pivots li a:hover {
@@ -617,8 +602,8 @@ figcaption a {
 /* Posts */
 /* ------------------------------------------------------------------ */
 
-h3+.summary,
-p+.continue {
+h3 + .summary,
+p + .continue {
     margin-top: calc(var(--margin) * -0.5);
 }
 
@@ -631,13 +616,5 @@ p+.continue {
 
 .continue a {
     display: inline-block;
-    padding: 5px 12px;
-    border: 1px solid var(--system-black);
-    text-decoration: none;
-    color: var(--system-black)
-}
-
-.continue a:hover {
-    background-color: var(--system-black);
-    color: var(--system-white);
+    color: var(--system-black);
 }
